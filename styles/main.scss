@@ -1,3 +1,23 @@
-.customClassFromFile {
-    color: blue;
+@import './shared/fonts';
+
+// for index page
+@import './index';
+
+@import './header';
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', 'Helvetica' !important;
 }
+
+.self-typed {
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.absolute {
+    position: absolute;
+  }

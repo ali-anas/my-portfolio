@@ -1,31 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  NavbarText
+} from 'reactstrap';
 
-class Header extends React.Component {
+const MyNavLink = (props) => {
+    const { route, title } = props;
 
-    render() {
-        return (
-            <div>
-                <p className="customClassFromFile">This is a para</p>
-                <Link href="/">
-                    <a style={{'fontSize': '20px'}}>Home</a>
-                </Link>
-                <Link href="/about">
-                    <a> About </a>
-                </Link>
-                <Link href="/portfolios">
-                    <a> Portfolios </a>
-                </Link>
-                <Link href="/cv">
-                    <a> CV </a>
-                </Link>
-                <Link href="/blogs">
-                    <a> Blogs </a>
-                </Link>
-            </div>
-            
-        )
-    }
+    return (
+        <Link href={route}>
+            <a className="nav-link port-navbar-link">{title}</a>
+        </Link>
+    )
 }
 
-export default Header;
+const Example = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
+    <div>
+      <Navbar className="port-navbar port-default absolute" color="faded" dark expand="md">
+          <NavbarBrand className="port-navbar-brand" href="/">Anas Ali</NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                  <NavItem className="port-navbar-item">
+                      <MyNavLink route="/" title="Home" />
+                    </NavItem>
+                <NavItem className="port-navbar-item">
+                    <MyNavLink route="/about" title="About" />
+                </NavItem>
+                <NavItem className="port-navbar-item">
+                    <MyNavLink route="/portfolios" title="Portfolios" />
+                </NavItem>
+                <NavItem className="port-navbar-item">
+                    <MyNavLink route="/cv" title="CV" />
+                </NavItem>
+                <NavItem className="port-navbar-item">
+                    <MyNavLink route="/blogs" title="Blogs" />
+                </NavItem>
+            
+          </Nav>
+          {/* <NavbarText>Simple Text</NavbarText> */}
+          {/* <NavItem className="port-navbar-item"> */}
+              {/* <MyNavLink route="/about" title="About" /> */}
+          {/* </NavItem> */}
+        </Collapse>
+      </Navbar>
+    </div>
+  );
+}
+
+export default Example;
