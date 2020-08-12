@@ -5,10 +5,13 @@
 
 @import './header';
 
+// colors - #02203c   box-shadow: 0 2px 5px 0 rgba(0,0,0,.5)  #890023
+
 html, body {
     height: 100%;
     width: 100%;
     font-family: 'Montserrat', 'Helvetica' !important;
+    color:white;
 }
 
 .self-typed {
@@ -21,3 +24,16 @@ html, body {
 .absolute {
     position: absolute;
   }
+
+.clickable {
+    cursor: pointer;
+}
+
+.base-page {
+    padding-top: 100px;
+}
+
+.page-content {
+    border-top: 2px solid white;
+    padding-top: 20px;
+}
