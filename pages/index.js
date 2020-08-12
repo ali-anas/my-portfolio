@@ -22,7 +22,7 @@ class Index extends React.Component {
 					
 					<Container>
 						<Row>
-							<Col md="6" style={{'padding': "20px 10px 20px 10px"}}>
+							<Col md="4" style={{'padding': "20px"}}>
 								<div className="hero-section">
 									<div className={`flipper`}>
 										<div className="back">
@@ -32,6 +32,7 @@ class Index extends React.Component {
 													Have a look at my portfolio.
 												</div> */}
 											</div>
+											{/* <div className="image"></div> */}
 											<img className="image" src="/images/anas-blue-ic.png"/>
 											<div className="shadow-custom">
 												<div className="shadow-inner"> </div>
@@ -40,7 +41,7 @@ class Index extends React.Component {
 									</div>
 								</div>
 							</Col>
-							<Col md="6" className="hero-welcome-wrapper" style={{'padding': "20px 10px 20px 10px"}}>
+							<Col md="6" className="hero-welcome-wrapper" style={{'padding': "20px"}}>
 								<div className="hero-welcome-text">
 									<h1>
 										Hi all, I'm Anas Ali.

@@ -21,15 +21,28 @@ const MyNavLink = (props) => {
     )
 }
 
+const Login = () => {
+    return (
+		<span className="nav-link port-navbar-link clickable"> Login </span>
+	)
+}
+
+const Logout = () => {
+    return (
+		<span className="nav-link port-navbar-link clickable"> Logout </span>
+	)
+}
+
 const Example = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  // const bg = '#02203c';
 
   return (
     <div>
-      <Navbar className="port-navbar port-default absolute" color="faded" dark expand="md">
-          <NavbarBrand className="port-navbar-brand" href="/">Anas Ali</NavbarBrand>
+      <Navbar className="port-navbar port-default absolute" color='transparent' dark expand="md">
+          <NavbarBrand className="port-navbar-brand" href="/">Anas</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
@@ -47,6 +60,12 @@ const Example = (props) => {
                 </NavItem>
                 <NavItem className="port-navbar-item">
                     <MyNavLink route="/blogs" title="Blogs" />
+                </NavItem>
+                <NavItem className="port-navbar-item">
+                    <Login />
+                </NavItem>
+                <NavItem className="port-navbar-item">
+                    <Logout />
                 </NavItem>
             
           </Nav>
