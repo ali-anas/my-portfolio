@@ -6,19 +6,20 @@
 @import './header';
 
 // colors - #02203c   box-shadow: 0 2px 5px 0 rgba(0,0,0,.5)  #890023
+// svg-colors = #00cba9  #a2d9ff  #273036 #0099ff
 
 html, body {
     height: 100%;
     width: 100%;
     font-family: 'Montserrat', 'Helvetica' !important;
-    color:white;
+    color: #273036;
 }
 
 .self-typed {
     font-size: 38px;
     font-weight: bold;
     letter-spacing: 2px;
-    color: white;
+    color: #890023;
 }
 
 .absolute {
@@ -34,6 +35,12 @@ html, body {
 }
 
 .page-content {
-    border-top: 2px solid white;
+    border-top: 2px solid #273036;
     padding-top: 20px;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }

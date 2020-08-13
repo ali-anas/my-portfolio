@@ -2,11 +2,12 @@
   .port-navbar.port-default {
     width: 100%;
     z-index: 15;
-    padding: 30px;
+    padding: 10px;
+    background-color:#890023;
   
     .port-navbar {
       &-brand {
-        color: white;
+        color: #f6f9fc;
         font-size: 24px;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -19,7 +20,7 @@
       }
   
       &-link {
-        color: white;
+        color: #f6f9fc;
         font-weight: bold;
         letter-spacing: 0.8px;
         font-size: 18px;
@@ -30,12 +31,11 @@
         }
   
         &:hover, &:focus {
-          // color: #ff3333 //#dba919;
-          // text-decoration: underline;
           padding-bottom: 4px; 
           border-bottom-style: solid; 
           border-bottom-width: 3.1px; 
-          width: fit-content; 
+          width: fit-content;
+          color: #f6f9fc;
         }
       }
     }
