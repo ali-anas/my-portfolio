@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   Collapse,
   Navbar,
@@ -22,9 +23,11 @@ const MyNavLink = (props) => {
 }
 
 const Login = () => {
-    return (
-		<span className="nav-link port-navbar-link clickable"> Login </span>
-	)
+  //   return (
+	// 	<span className="nav-link port-navbar-link clickable"> Login </span>
+  // )
+	const { loginWithRedirect } = useAuth0();
+	return <span className="nav-link port-navbar-link clickable" onClick={() => loginWithRedirect()}>Log In</span>;
 }
 
 const Logout = () => {
@@ -37,11 +40,11 @@ const Example = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-  // const bg = '#02203c';
+//   const bg = '#02203c';
 
   return (
     <div>
-      <Navbar className="port-navbar port-default absolute" color='transparent' dark expand="md">
+      <Navbar className="port-navbar port-default absolute" color='fade' dark expand="md">
           <NavbarBrand className="port-navbar-brand" href="/">Anas</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
