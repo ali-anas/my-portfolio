@@ -1,48 +1,72 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
-
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Typography from "@material-ui/core/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
+import { sizing } from "@material-ui/system";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    navContainer: {
-      display: 'flex',
-    },
-    navItem: {
-      marginRight: theme.spacing(4),
-    }
-  }));
-
+  root: {
+    flexGrow: 1,
+  },
+  // navItem: {
+  //   marginRight: theme.spacing(4),
+  // },
+  margin: {
+    padding: theme.spacing(0, 4),
+    height: "100%",
+    borderRadius: "0",
+  },
+  navItems: {
+    justifyContent: "flex-end",
+  },
+  toolbar: {
+    height: 50,
+    minHeight: 50,
+    padding: theme.spacing(0),
+    // backgroundColor: "#2196f3",
+  },
+  brand: {
+    marginRight: "auto",
+    fontSize: "24px",
+    fontWeight: "bold",
+    height: "100%",
+    borderRadius: "0",
+    padding: theme.spacing(0, 4),
+  },
+}));
 
 const NavBar = () => {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <div className={classes.root}>
-            <AppBar color="primary" position="sticky">
-                <Toolbar>
-                    <div className={classes.navContainer}>
-                        <Typography edge="start" variant="h6" className={classes.navItem}>
-                            GReviews
-                        </Typography>
-                        {/* <Typography variant="h4" className={classes.navItem}>
+  return (
+    <div className={classes.root}>
+      <AppBar position="sticky" color="transparent">
+        <Toolbar className={classes.toolbar}>
+          <Button size="large" className={classes.brand}>
+            Anas Ali
+          </Button>
+          <Button size="medium" className={classes.margin}>
+            Reviews
+          </Button>
+          <Button size="medium" disabled className={classes.margin}>
+            Blogs
+          </Button>
+
+          {/* <Typography edge="start" variant="h6" className={classes.navItem}>
+            GReviews
+          </Typography> */}
+          {/* <Typography variant="h4" className={classes.navItem}>
                             Anas Ali
                         </Typography> */}
-                        <Typography edge="end" variant="h6" className={classes.navItem}>
-                            Blogs
-                        </Typography>
-                    </div>
-                </Toolbar>
-            </AppBar>
-        </div>
-    );
-}
+          {/* <Typography edge="end" variant="h6" className={classes.navItem}>
+            Blogs
+          </Typography> */}
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
+};
 
 export default NavBar;

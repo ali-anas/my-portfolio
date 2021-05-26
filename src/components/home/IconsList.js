@@ -10,9 +10,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "center",
-    [theme.breakpoints.up("md")]: {
-      justifyContent: "start",
-    },
+    // [theme.breakpoints.up("md")]: {
+    //   justifyContent: "start",
+    // },
     "& > *": {
       margin: theme.spacing(1),
     },

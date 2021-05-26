@@ -22,9 +22,9 @@ function TabPanel(props) {
       className={classes.root}
     >
       {value === index && (
-        <Paper elevation={0} square className={classes.tabPanel}>
+        <div square="true" className={classes.tabPanel}>
           {children}
-        </Paper>
+        </div>
       )}
     </div>
   );
@@ -47,10 +47,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
+    // minHeight: "100vh",
   },
   tabPanel: {
-    margin: "20px 10%",
+    margin: "20px 0",
+    [theme.breakpoints.up("md")]: {
+      margin: "20px 10%",
+    },
     border: "0px",
+    minHeight: "500px",
   },
 }));
 

@@ -1,35 +1,32 @@
 import "./App.css";
+import { createMuiTheme } from "@material-ui/core/styles";
 import NavBar from "./components/NavBar";
-import IntroBanner from "./components/home/IntroBanner";
 import Container from "@material-ui/core/Container";
-import Divider from "@material-ui/core/Divider";
-import TabbedLayout from "./components/home/TabbedLayout";
+import Home from "./components/pages/Home";
 import Footer from "./components/Footer";
 
 import { makeStyles } from "@material-ui/core/styles";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#2196f3",
+    },
+    secondary: {
+      main: "#2979ff",
+    },
   },
-  divider: {
-    margin: "20px 10%",
-    color: "red",
-  },
-}));
+});
 
 function App() {
   const classes = useStyles();
   return (
     <div className="App">
       <NavBar />
-      <Container maxWidth="lg">
-        <div>
-          <IntroBanner />
-        </div>
+      <Container maxWidth="lg"></Container>
 
-        <Divider variant="middle" className={classes.divider} />
-        <TabbedLayout />
-      </Container>
+      {/* TODO: Add router to route */}
+
       <Footer />
     </div>
   );
