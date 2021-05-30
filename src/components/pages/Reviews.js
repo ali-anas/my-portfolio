@@ -1,5 +1,5 @@
 import React from "react";
-import TabbedNav from "./TabbedNav";
+import AllReviews from "../reviews/AllReviews";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -9,13 +9,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TabbedLayout = () => {
+const Reviews = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <TabbedNav />
+      <AllReviews />
     </div>
   );
 };
 
-export default TabbedLayout;
+export default Reviews;

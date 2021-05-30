@@ -2,6 +2,7 @@ import React from "react";
 import Divider from "@material-ui/core/Divider";
 import TabbedLayout from "../home/TabbedLayout";
 import IntroBanner from "../home/IntroBanner";
+import Container from "@material-ui/core/Container";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -16,12 +17,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
+  const classes = useStyles();
   return (
-    <>
-      <IntroBanner />
-      <Divider variant="middle" className={classes.divider} />
-      <TabbedLayout />
-    </>
+    <div className={classes.root}>
+      <Container maxWidth="lg">
+        <IntroBanner />
+        {/* <Divider variant="middle" classNames={classes.divider} /> */}
+        <TabbedLayout />
+      </Container>
+    </div>
   );
 };
 export default Home;

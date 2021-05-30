@@ -1,16 +1,17 @@
 import React from "react";
 import "./ProfileAvatar.css";
 import { makeStyles } from "@material-ui/core/styles";
+// import { Skeleton } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  avatarContainer: {
-    padding: "0 40%",
-    // [theme.breakpoints.up("md")]: {
-    //   padding: "0 0 0 25%",
-    // },
+    position: "relative",
+    width: "200px",
+    height: "200px",
+    overflow: "hidden",
+    borderRadius: "50%",
+    margin: "0 auto",
   },
 }));
 
@@ -18,9 +19,8 @@ const ProfileAvatar = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <div className={classes.avatarContainer}>
-        <div className="Profile-avatar" />
-      </div>
+      {/* <Skeleton variant="circle" className={classes.root} /> */}
+      <div className="Profile-avatar" />
     </div>
   );
 };

@@ -40,16 +40,7 @@ const Projects = () => {
 
   return (
     <div className={classes.root}>
-      {loading ? (
-        <Skeleton
-          animation="wave"
-          height={50}
-          width="20%"
-          style={{ margin: "0 auto" }}
-        />
-      ) : (
-        <Typography variant="h4">Projects</Typography>
-      )}
+      <Typography variant="h4">Projects</Typography>
 
       <Grid container>
         {projects.map((projectObjs) => (

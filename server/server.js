@@ -4,6 +4,7 @@ const http = require("http");
 
 const projectsRouter = require("./routers/projectsRouter");
 const skillsRouter = require("./routers/skillsRouter");
+const reviewsRouter = require("./routers/reviewsRouter");
 
 const hostname = "localhost";
 const port = 5000;
@@ -18,7 +19,7 @@ app.use(express.static(reactPath));
 
 app.use("/projects", projectsRouter);
 app.use("/skills/", skillsRouter);
-
+app.use("/reviews", reviewsRouter);
 // for all other routes, render index.html and let the
 // react router handle it
 app.get("*", (req, res) => {
