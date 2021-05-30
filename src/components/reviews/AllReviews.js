@@ -11,7 +11,7 @@ import { get } from "../../utilities";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    width: "100vw",
+    width: "90vw",
     margin: "10vh auto",
     [theme.breakpoints.up("sm")]: {
       width: "60vw",
@@ -30,15 +30,20 @@ const AllReviews = () => {
 
   useEffect(() => {
     get("/reviews").then((response) => {
-      setData(response.reviews);
+      let reversedResponse = response.reviews.reverse();
+      setData(reversedResponse);
       setLoading(false);
     });
   }, []);
 
+  const addNewReview = (reviewObj) => {
+    setData([reviewObj].concat(data));
+  };
+
   const hasReviews = data.length !== 0;
   return (
     <div className={classes.root}>
-      <NewReview />
+      <NewReview addNewReview={addNewReview} />
       {hasReviews ? (
         <Grid container>
           {data.map((dataObjs, index) => (

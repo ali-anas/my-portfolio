@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import { sizing } from "@material-ui/system";
 import { Link } from "react-router-dom";
@@ -10,17 +11,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  // navItem: {
-  //   marginRight: theme.spacing(4),
-  // },
-  margin: {
-    padding: theme.spacing(0, 4),
-    height: "100%",
-    borderRadius: "0",
-  },
   navItem: {
     justifyContent: "flex-end",
-    padding: theme.spacing(0, 2),
+    textDecoration: "none",
+    height: "100%",
+  },
+  navButton: {
+    height: "100%",
+    padding: theme.spacing(0, 4),
+    borderRadius: 0,
   },
   toolbar: {
     height: 50,
@@ -29,11 +28,13 @@ const useStyles = makeStyles((theme) => ({
     // backgroundColor: "#2196f3",
   },
   brand: {
-    marginLeft: theme.spacing(2),
-    marginRight: "auto",
-    fontSize: "24px",
-    fontWeight: "bold",
+    color: "black",
     height: "100%",
+    marginRight: "auto",
+    fontWeight: "bold",
+    textDecoration: "none",
+    fontSize: "larger",
+    letterSpacing: "0.1em",
   },
 }));
 
@@ -44,22 +45,24 @@ const NavBar = () => {
     <div className={classes.root}>
       <AppBar position="sticky" color="transparent">
         <Toolbar className={classes.toolbar}>
-          <div className={classes.brand}>
-            <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/" className={classes.brand}>
+            <Button className={classes.navButton}>
               Anas Ali
               {/* </Button> */}
-            </Link>
-          </div>
-          <div className={classes.navItem}>
-            <Link to="/reviews" style={{ textDecoration: "none" }}>
+            </Button>
+          </Link>
+
+          <Link to="/reviews" className={classes.navItem}>
+            <Button size="medium" className={classes.navButton}>
               Reviews
-            </Link>
-          </div>
-          <div className={classes.navItem}>
-            <Link to="/blogs" style={{ textDecoration: "none" }}>
+            </Button>
+          </Link>
+
+          <Link to="/blogs" className={classes.navItem}>
+            <Button size="medium" className={classes.navButton}>
               Blogs
-            </Link>
-          </div>
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

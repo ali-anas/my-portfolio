@@ -24,12 +24,10 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-
-      {/* TODO: Add router to route */}
       {/* <Container maxWidth="lg"> */}
       <Switch>
-        <Route exact path="/" component={Reviews} />
-        <Route path="/reviews" component={Home} />
+        <Route exact path="/" component={Home} />
+        <Route path="/reviews" component={Reviews} />
         <Route component={NotFound} />
       </Switch>
       {/* </Container> */}

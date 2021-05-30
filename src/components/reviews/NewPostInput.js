@@ -10,7 +10,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   formResize: {
-    width: "60vw",
+    width: "90vw",
+    [theme.breakpoints.up("sm")]: {
+      width: "60vw",
+    },
   },
   button: {
     margin: theme.spacing(1),
@@ -27,7 +30,9 @@ function NewPostInput(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onSubmit && props.onSubmit(value);
+    let arr = value.split("\n");
+    console.log(arr);
+    props.onSubmit && props.onSubmit(arr);
     setValue("");
   };
 
@@ -59,10 +64,12 @@ function NewPostInput(props) {
   );
 }
 
-function NewReview() {
-  const addReview = (value) => {
-    const body = { content: value };
-    post("/reviews", body);
+function NewReview(props) {
+  const addReview = (valueArr) => {
+    const body = { content: valueArr };
+    post("/reviews", body).then((review) => {
+      props.addNewReview(review);
+    });
   };
 
   return <NewPostInput defaultText="New Review" onSubmit={addReview} />;
