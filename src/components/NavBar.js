@@ -18,8 +18,11 @@ const useStyles = makeStyles((theme) => ({
   },
   navButton: {
     height: "100%",
-    padding: theme.spacing(0, 4),
     borderRadius: 0,
+    padding: theme.spacing(0, 2),
+    [theme.breakpoints.up("sm")]: {
+      padding: theme.spacing(0, 4),
+    },
   },
   toolbar: {
     height: 50,
@@ -33,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
     fontWeight: "bold",
     textDecoration: "none",
-    fontSize: "larger",
+    fontSize: "large",
     letterSpacing: "0.1em",
   },
 }));

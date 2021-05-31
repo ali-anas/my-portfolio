@@ -8,14 +8,15 @@ import Reviews from "./components/pages/Reviews";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import ScrollIndicator from "./components/ScrollIndicator";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#2196f3",
-    },
-    secondary: {
-      main: "#2979ff",
+      secondary: {
+        main: "#2979ff",
+      },
     },
   },
 });
@@ -24,6 +25,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      <ScrollIndicator />
+
       {/* <Container maxWidth="lg"> */}
       <Switch>
         <Route exact path="/" component={Home} />

@@ -128,7 +128,6 @@ const SingleReview = ({ loading, data }) => {
               <Typography
                 key={index}
                 variant="body1"
-                color="textSecondary"
                 component="p"
                 className={classes.sentenceMargin}
               >

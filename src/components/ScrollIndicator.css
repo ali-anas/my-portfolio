@@ -1,0 +1,14 @@
+.ScrollIndicator-progressMainWrapper {
+  background-color: #bbdefb;
+  height: 0.25rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+}
+
+.ScrollIndicator-progressMainStyle {
+  height: 0.25rem;
+  background-color: #2196f3;
+}

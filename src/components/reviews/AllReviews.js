@@ -53,7 +53,10 @@ const AllReviews = () => {
           ))}
         </Grid>
       ) : (
-        <Typography variant="h3">No Responses!</Typography>
+        <React.Fragment>
+          <Typography variant="h3">No Responses Yet!</Typography>
+          <Typography variant="h5">Add your Review</Typography>
+        </React.Fragment>
       )}
     </div>
   );

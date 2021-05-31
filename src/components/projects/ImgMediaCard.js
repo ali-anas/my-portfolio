@@ -45,7 +45,7 @@ export default function ImgMediaCard({ loading, project }) {
           <CardActionArea>
             {loading ? (
               <Skeleton
-                animation="wave"
+                animation={false}
                 variant="rect"
                 className={classes.media}
               />
