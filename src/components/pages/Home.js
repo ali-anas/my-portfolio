@@ -10,10 +10,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  divider: {
-    margin: "20px 10%",
-    color: "red",
-  },
+  // primary = #08bd80;
+  // white1 = #ededed
+  // white2 = #f5f5f5
+  // white3 = #f0f0f0
+  // white4 - #f2f2f2
+  // white5 = #f7f7f7
 }));
 
 const Home = () => {

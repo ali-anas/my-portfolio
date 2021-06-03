@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     minHeight: "100vh",
-    backgroundColor: "#2196f3",
+    // backgroundColor: "#2196f3",
   },
   bannerContent: {
     height: "60vh",

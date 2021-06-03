@@ -1,10 +1,28 @@
 const express = require("express");
 const path = require("path");
 const http = require("http");
+const mongoose = require("mongoose");
+
+require("dotenv").config();
 
 const projectsRouter = require("./routers/projectsRouter");
 const skillsRouter = require("./routers/skillsRouter");
 const reviewsRouter = require("./routers/reviewsRouter");
+
+const mongoConnectionURL = process.env.MONGO_SRV;
+// console.log(process.env.MONGO_SRV);
+const databaseName = "portfolio";
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  dbName: databaseName,
+};
+
+// connect to mongodb
+mongoose
+  .connect(mongoConnectionURL, options)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
 
 const hostname = "localhost";
 const port = 5000;
