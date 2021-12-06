@@ -55,7 +55,7 @@ export default function ImgMediaCard({ loading, project }) {
                 component="img"
                 alt="Project"
                 height="140"
-                src={project.img_url}
+                src={project.imageUrl}
                 title="Contemplative Reptile"
               />
             )}

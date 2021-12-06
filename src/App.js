@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <ScrollIndicator />
+      {/* <ScrollIndicator /> */}
 
       {/* <Container maxWidth="lg"> */}
       <Switch>

@@ -10,7 +10,6 @@ const skillsRouter = require("./routers/skillsRouter");
 const reviewsRouter = require("./routers/reviewsRouter");
 
 const mongoConnectionURL = process.env.MONGO_SRV;
-// console.log(process.env.MONGO_SRV);
 const databaseName = "portfolio";
 const options = {
   useNewUrlParser: true,

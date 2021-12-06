@@ -14,13 +14,22 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     minHeight: "100vh",
     // backgroundColor: "#2196f3",
+    // background: "linear-gradient(180deg, #05f, #09f)",
   },
   bannerContent: {
     height: "60vh",
     padding: "20vh 0",
   },
+  introText: {
+    color: "black",
+    fontSize: "1.25rem",
+    margin: theme.spacing(0),
+  },
   name: {
-    fontSize: "calc(2em + 2vw)",
+    fontSize: "calc(4em + 2vw)",
+    fontFamily: "Product-Sans",
+    color: "#08bd80",
+    fontWeight: "600",
   },
 }));
 
@@ -30,11 +39,16 @@ export default function IntroBanner() {
   return (
     <div className={classes.root}>
       <div className={classes.bannerContent}>
-        <ProfileAvatar />
-        <div>
-          <Typography className={classes.name}>Anas Ali</Typography>
+        {/* <ProfileAvatar /> */}
+        <div className={`${"animateBanner"} ${"pop"}`}>
+          <Typography className={classes.name}>Anas Ali.</Typography>
         </div>
-        <div>
+        <div className={`${"animateBanner"} ${"pop"} ${"delay-first"}`}>
+          <Typography className={classes.introText}>
+            A learner and a competitive programmer.
+          </Typography>
+        </div>
+        <div className={`${"animateBanner"} ${"pop"} ${"delay-first"}`}>
           <IconsList />
         </div>
       </div>

@@ -1,5 +1,7 @@
 const express = require("express");
 
+const skillController = require("../controllers/skillsController");
+
 const data = {
   skills: [
     {
@@ -11,7 +13,7 @@ const data = {
           rating: 4,
         },
         {
-          skill_name: "HTML/CSS",
+          skill_name: "HTML5/CSS3",
           rating: 4,
         },
         {
@@ -91,15 +93,8 @@ const data = {
 
 const skillsRouter = express.Router();
 
-skillsRouter.get("/", (req, res) => {
-  setTimeout(() => {
-    res.send(data);
-  }, 5000);
-});
+skillsRouter.get("/", skillController.getSkills);
 
-skillsRouter.all("*", (req, res) => {
-  console.log(`API route not found: ${req.method} ${req.url}`);
-  res.status(404).send({ msg: "API route not found" });
-});
+skillsRouter.all("*", skillController.otherRoutes);
 
 module.exports = skillsRouter;

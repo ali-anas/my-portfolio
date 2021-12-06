@@ -54,7 +54,7 @@ const AllReviews = () => {
         </Grid>
       ) : (
         <React.Fragment>
-          <Typography variant="h3">No Responses Yet!</Typography>
+          <Typography variant="h3">No Reviews Yet!</Typography>
           <Typography variant="h5">Add your Review</Typography>
         </React.Fragment>
       )}

@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "40vw",
     textAlign: "left",
     padding: theme.spacing(1, 2),
+    borderRadius: "10px",
     // boxShadow:
     //   "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
     // boxShadow:
@@ -59,7 +60,7 @@ const SingleReview = ({ loading, data }) => {
   const classes = useStyles();
   return (
     <Fade in={true} style={{ transformOrigin: "0 0 0" }} {...{ timeout: 1000 }}>
-      <Card className={classes.root} rounded elevation={0}>
+      <Card className={classes.root} elevation={0}>
         <CardHeader
           avatar={
             loading ? (
@@ -70,7 +71,7 @@ const SingleReview = ({ loading, data }) => {
                 height={40}
               />
             ) : (
-              <Avatar alt="Ted talk" src="" />
+              <Avatar alt="Image" src={data.reviewerImageUrl} />
             )
           }
           action={
@@ -96,14 +97,14 @@ const SingleReview = ({ loading, data }) => {
                 style={{ marginBottom: 8 }}
               />
             ) : (
-              data.name
+              data.reviewerName
             )
           }
           subheader={
             loading ? (
               <Skeleton animation="wave" height={14} width="40%" />
             ) : (
-              data.designation
+              data.reviewerDesignation
             )
           }
         />

@@ -9,7 +9,13 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    top: "0",
+    position: "sticky",
+    transition: "top 300ms cubic-beizer(0.4, 0, 0.2, 1) 0ms",
+    zIndex: "1100",
+    backdropFilter: "blur(20px)",
+    boxShadow: "inset 0px -1px 1px #eaeef3",
+    backgroundColor: "rgba(255, 255, 255, 0.72)",
   },
   navItem: {
     justifyContent: "flex-end",
@@ -18,15 +24,15 @@ const useStyles = makeStyles((theme) => ({
   },
   navButton: {
     height: "100%",
-    borderRadius: 0,
+    borderRadius: "0px",
     padding: theme.spacing(0, 2),
     [theme.breakpoints.up("sm")]: {
       padding: theme.spacing(0, 4),
     },
   },
   toolbar: {
-    height: 50,
-    minHeight: 50,
+    height: 60,
+    minHeight: 60,
     padding: theme.spacing(0),
     // backgroundColor: "#2196f3",
   },
@@ -46,7 +52,7 @@ const NavBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="sticky" color="transparent">
+      <AppBar position="sticky" color="transparent" elevation={0}>
         <Toolbar className={classes.toolbar}>
           <Link to="/" className={classes.brand}>
             <Button className={classes.navButton}>

@@ -30,8 +30,8 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    get("/projects").then((projectsObj) => {
-      setProjects(projectsObj);
+    get("/projects").then((response) => {
+      setProjects(response.projects);
       setLoading(false);
     });
   }, []);
@@ -41,14 +41,19 @@ const Projects = () => {
   return (
     <div className={classes.root}>
       <Typography variant="h4">Projects</Typography>
-
-      <Grid container>
-        {projects.map((projectObjs) => (
-          <Grid key={projectObjs.id} item xs={12} sm={6}>
-            <ImgMediaCard loading={loading} project={projectObjs} />
-          </Grid>
-        ))}
-      </Grid>
+      {hasProjects ? (
+        <Grid container>
+          {projects.map((projectObjs) => (
+            <Grid key={projectObjs._id} item xs={12} sm={6}>
+              <ImgMediaCard loading={loading} project={projectObjs} />
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        <React.Fragment>
+          <Typography variant="h3">No Projects Yet!</Typography>
+        </React.Fragment>
+      )}
     </div>
   );
 };

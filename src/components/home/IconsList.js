@@ -10,24 +10,32 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "center",
+    // backgroundColor: "#08bd80"
     // [theme.breakpoints.up("md")]: {
     //   justifyContent: "start",
     // },
     "& > *": {
-      margin: theme.spacing(1),
+      margin: theme.spacing(2),
+      cursor: "pointer",
     },
   },
 }));
 
 export default function IconsList() {
   const classes = useStyles();
+  const data = [<LinkedIn />, <Email />, <Github />, <Print />];
 
   return (
     <div className={classes.root}>
-      <LinkedIn />
-      <Github />
-      <Email />
-      <Print />
+      {data.map((comp, index) => (
+        <div
+          className={`${"animateIconList"} ${"glow"} ${`delay-${Number(
+            index
+          )}`}`}
+        >
+          {comp}
+        </div>
+      ))}
     </div>
   );
 }
