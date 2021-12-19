@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     borderRadius: "50%",
     backgroundColor: "white",
-    boxShadow: "0px 16px 32px 0px rgba(221, 230, 237, 0.4)",
+    // boxShadow: "0px 16px 32px 0px rgba(221, 230, 237, 0.4)",
+    boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 30px -10px",
   },
   root: {
     color: "#08bd80",
@@ -26,17 +27,22 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "2.5em",
     },
   },
+  a: {
+    textDecoration: "none",
+  },
 }));
 
 const Email = () => {
   const classes = useStyles();
   return (
     <>
-      <Tooltip title="Email" arrow>
-        <div className={classes.iconDiv}>
-          <i className={`${"fa fa-envelope"} ${classes.root}`}></i>
-        </div>
-      </Tooltip>
+      <a className={classes.a} href="mailto:anasalialmora@gmail.com">
+        <Tooltip title="Email" arrow>
+          <div className={classes.iconDiv}>
+            <i className={`${"fa fa-envelope"} ${classes.root}`}></i>
+          </div>
+        </Tooltip>
+      </a>
     </>
   );
 };

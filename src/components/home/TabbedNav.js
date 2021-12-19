@@ -75,17 +75,18 @@ export default function TabsWrappedLabel() {
         centered
       >
         <Tab value="one" label="About" {...a11yProps("one")} />
-        <Tab value="two" label="Experience" {...a11yProps("two")} disabled />
+        {/* <Tab value="two" label="Experience" {...a11yProps("two")} disabled /> */}
         <Tab value="three" label="Skills" {...a11yProps("three")} />
         <Tab value="four" label="Projects" {...a11yProps("four")} />
       </Tabs>
       <TabPanel value={value} index="one">
         <About />
       </TabPanel>
-      <TabPanel value={value} index="two">
+      {/* <TabPanel value={value} index="two">
         Experience
-        {/* <Experience /> */}
+        {/* <Experience />
       </TabPanel>
+        */}
       <TabPanel value={value} index="three">
         <Skills />
       </TabPanel>

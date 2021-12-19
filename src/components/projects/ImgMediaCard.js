@@ -85,7 +85,7 @@ export default function ImgMediaCard({ loading, project }) {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            {loading ? (
+            {/* {loading ? (
               <Skeleton
                 animation="wave"
                 variant="rect"
@@ -96,7 +96,7 @@ export default function ImgMediaCard({ loading, project }) {
               <Button size="small" color="primary">
                 More...
               </Button>
-            )}
+            )} */}
 
             {loading ? (
               <Skeleton

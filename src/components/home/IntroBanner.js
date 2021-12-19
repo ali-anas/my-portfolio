@@ -21,14 +21,17 @@ const useStyles = makeStyles((theme) => ({
     padding: "20vh 0",
   },
   introText: {
-    color: "black",
-    fontSize: "1.25rem",
+    fontSize: "1.5rem",
     margin: theme.spacing(0),
+    color: "#3c4043",
+    fontFamily: "Product-Sans",
+    fontWeight: "500",
   },
   name: {
     fontSize: "calc(4em + 2vw)",
     fontFamily: "Product-Sans",
     color: "#08bd80",
+    // color: "black",
     fontWeight: "600",
   },
 }));
@@ -49,7 +52,7 @@ export default function IntroBanner() {
           </Typography>
         </div>
         <div className={`${"animateBanner"} ${"pop"} ${"delay-first"}`}>
-          <IconsList />
+          <IconsList toAnimate={true} />
         </div>
       </div>
     </div>

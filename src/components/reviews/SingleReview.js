@@ -9,7 +9,6 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Skeleton from "@material-ui/lab/Skeleton";
-import { LinkedIn } from "@material-ui/icons";
 import { Fade } from "@material-ui/core";
 
 import LinkedInIcon from "@material-ui/icons/LinkedIn";

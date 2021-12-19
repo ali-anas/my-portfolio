@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function IconsList() {
+export default function IconsList({ toAnimate }) {
   const classes = useStyles();
   const data = [<LinkedIn />, <Email />, <Github />, <Print />];
 
@@ -29,9 +29,9 @@ export default function IconsList() {
     <div className={classes.root}>
       {data.map((comp, index) => (
         <div
-          className={`${"animateIconList"} ${"glow"} ${`delay-${Number(
-            index
-          )}`}`}
+          className={`${toAnimate ? "animateIconList" : ""} ${
+            toAnimate ? "glow" : ""
+          } ${toAnimate ? `delay-${Number(index)}` : ""}`}
         >
           {comp}
         </div>

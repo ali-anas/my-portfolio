@@ -2,13 +2,18 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const session = require("express-session");
 
-require("dotenv").config();
+// Load config
+dotenv.config({ path: "./config/config.env" });
 
+// import routers
 const projectsRouter = require("./routers/projectsRouter");
 const skillsRouter = require("./routers/skillsRouter");
 const reviewsRouter = require("./routers/reviewsRouter");
 
+// pre-requisite to connect to mongodb
 const mongoConnectionURL = process.env.MONGO_SRV;
 const databaseName = "portfolio";
 const options = {
@@ -34,9 +39,16 @@ app.use(express.json());
 const reactPath = path.resolve(__dirname, "..", "public");
 app.use(express.static(reactPath));
 
+// Sessions
+app.use(
+  session({ secret: "my secret", resave: false, saveUninitialized: false })
+);
+
+// use the routers
 app.use("/projects", projectsRouter);
 app.use("/skills/", skillsRouter);
 app.use("/reviews", reviewsRouter);
+
 // for all other routes, render index.html and let the
 // react router handle it
 app.get("*", (req, res) => {

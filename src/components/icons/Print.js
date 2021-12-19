@@ -24,7 +24,11 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     borderRadius: "50%",
     backgroundColor: "white",
-    boxShadow: "0px 16px 32px 0px rgba(221, 230, 237, 0.4)",
+    // boxShadow: "0px 16px 32px 0px rgba(221, 230, 237, 0.4)",
+    boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 30px -10px",
+  },
+  a: {
+    textDecoration: "none",
   },
 }));
 
@@ -32,11 +36,17 @@ const Print = () => {
   const classes = useStyles();
   return (
     <>
-      <Tooltip title="Resume" arrow>
-        <div className={classes.iconDiv}>
-          <i className={`${"fa fa-print"} ${classes.root}`}></i>
-        </div>
-      </Tooltip>
+      <a
+        className={classes.a}
+        href="https://drive.google.com/file/d/1_uXxWHFIyGF7HpNTxl2JE1kx7MHP74ed/view?usp=sharing"
+        target="_blank"
+      >
+        <Tooltip title="Resume" arrow>
+          <div className={classes.iconDiv}>
+            <i className={`${"fa fa-print"} ${classes.root}`}></i>
+          </div>
+        </Tooltip>
+      </a>
     </>
   );
 };

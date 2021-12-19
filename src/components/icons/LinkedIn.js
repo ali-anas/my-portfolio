@@ -24,7 +24,11 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     borderRadius: "50%",
     backgroundColor: "white",
-    boxShadow: "0px 16px 32px 0px rgba(221, 230, 237, 0.4)",
+    // boxShadow: "0px 16px 32px 0px rgba(221, 230, 237, 0.4)",
+    boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 30px -10px",
+  },
+  a: {
+    textDecoration: "none",
   },
 }));
 
@@ -32,11 +36,17 @@ const LinkedIn = () => {
   const classes = useStyles();
   return (
     <>
-      <Tooltip title="LinkedIn" arrow>
-        <div className={classes.iconDiv}>
-          <i className={`${"fa fa-linkedin"} ${classes.root}`}></i>
-        </div>
-      </Tooltip>
+      <a
+        href="https://linkedin.com/in/alianas"
+        target="_blank"
+        className={classes.a}
+      >
+        <Tooltip title="LinkedIn" arrow>
+          <div className={classes.iconDiv}>
+            <i className={`${"fa fa-linkedin"} ${classes.root}`}></i>
+          </div>
+        </Tooltip>
+      </a>
     </>
   );
 };
