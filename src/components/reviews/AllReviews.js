@@ -7,6 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import { NewReview } from "./NewPostInput";
 import { Link } from "react-router-dom";
 
+import AuthButtonComponent from "../auth/AuthButtonComponent";
+
 import { get } from "../../utilities";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,60 +23,45 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     margin: theme.spacing(2),
   },
-  loginDiv: {
-    // display: "flex",
-    // flexDirection: "row",
-    // flexWrap: "noWrap",
-    margin: "0px var(--m)",
-    textAlign: "center",
-    width: "min-content",
-  },
-  loginAndAddReviewDiv: {
-    display: "flex",
-    height: "160px",
-    justifyContent: "center",
+  authComponent: {
+    marginBottom: "var(--m)",
+    display: "inline-flex",
     alignItems: "center",
   },
-  loginButton: {
+  askToLogin: {
     display: "flex",
-    flexDirection: "row",
     flexWrap: "noWrap",
     overflow: "hidden",
     textOverflow: "ellipses",
-    margin: "0px",
-    border: "2px solid var(--greenColor)",
-    borderRadius: "var(--s)",
-    padding: "0px",
-    cursor: "pointer",
-    fontSize: "var(--m)",
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "var(--l)",
-    },
-
-    fontFamily: "Product-Sans",
-    letterSpacing: "0.25px",
-    boxShadow: "0px 10px 20px -5px lightGrey",
-  },
-  buttonText: {
-    padding: "var(--s) var(--m)",
-    color: "var(--white)",
-    backgroundColor: "var(--greenColor)",
-  },
-  buttonIcon: {
-    padding: "var(--s) var(--m)",
-    backgroundColor: "var(--white)",
+    height: "146px",
+    // alignItems: "center",
+    justifyContent: "center",
+    fontSize: "var(--l)",
+    margin: "0 var(--m)",
+    marginBottom: "var(--m)",
     color: "var(--greenColor)",
-  },
-  loginLink: {
-    textDecoration: "none",
   },
 }));
 
 const AllReviews = () => {
   const classes = useStyles();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([{}, {}, {}, {}]);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = (response) => {
+    // handle click on login button
+    console.log(response);
+    setIsLoggedIn(true);
+    console.log("in handle log in: ", isLoggedIn);
+  };
+
+  const handleLogout = () => {
+    // handle click on logout button
+    setIsLoggedIn(false);
+    console.log("logged out...");
+  };
 
   useEffect(() => {
     get("/reviews").then((response) => {
@@ -88,29 +75,23 @@ const AllReviews = () => {
     setData([reviewObj].concat(data));
   };
 
-  const handleLoginClick = () => {
-    // get("http://localhost:3000/auth/linkedin").then((res) => {
-    //   console.log(res);
-    // });
-    // setIsLoggedIn(true);
-  };
-
   const hasReviews = data.length !== 0;
   return (
     <div className={classes.root}>
-      <div className={classes.loginAndAddReviewDiv}>
-        {!isLoggedIn ? (
-          <div className={classes.loginDiv}>
-            <button className={classes.loginButton}>
-              <span className={classes.buttonIcon}>
-                <i className="fa fa-google"></i>
-              </span>
-              <div className={classes.buttonText}>Login/Signup</div>
-            </button>
-            <p>Login or Signup to add your review!</p>
-          </div>
-        ) : (
+      <div>
+        <div className={classes.authComponent}>
+          <AuthButtonComponent
+            isLoggedIn={isLoggedIn}
+            handleLogin={handleLogin}
+            handleLogout={handleLogout}
+          />
+        </div>
+        {isLoggedIn ? (
           <NewReview addNewReview={addNewReview} />
+        ) : (
+          <div className={classes.askToLogin}>
+            <p>Login/Signup with Google to add your review!</p>
+          </div>
         )}
       </div>
       {hasReviews ? (

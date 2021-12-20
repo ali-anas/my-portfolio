@@ -12,8 +12,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     flexDirection: "column",
+    marginBottom: "var(--m)",
   },
-  formResize: {
+  formClass: {
     width: "90vw",
     [theme.breakpoints.up("sm")]: {
       width: "60vw",
@@ -62,7 +63,7 @@ function NewPostInput(props) {
       <form noValidate autoComplete="off">
         <TextField
           error={hasError}
-          className={classes.formResize}
+          className={classes.formClass}
           id="outlined-multiline-static"
           label={props.defaultText}
           multiline
