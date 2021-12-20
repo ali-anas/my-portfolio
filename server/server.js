@@ -2,11 +2,10 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
 const session = require("express-session");
 
 // Load config
-dotenv.config({ path: "./config/config.env" });
+require('dotenv').config();
 
 // import routers
 const projectsRouter = require("./routers/projectsRouter");
