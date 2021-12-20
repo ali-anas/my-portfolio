@@ -73,20 +73,20 @@ const SingleReview = ({ loading, data }) => {
               <Avatar alt="Image" src={data.reviewerImageUrl} />
             )
           }
-          action={
-            loading ? (
-              <Skeleton
-                animation="wave"
-                height={20}
-                variant="rect"
-                width={20}
-              />
-            ) : (
-              <IconButton aria-label="settings">
-                <LinkedInIcon color="primary" />
-              </IconButton>
-            )
-          }
+          // action={
+          //   loading ? (
+          //     <Skeleton
+          //       animation="wave"
+          //       height={20}
+          //       variant="rect"
+          //       width={20}
+          //     />
+          //   ) : (
+          //     <IconButton aria-label="settings">
+          //       <LinkedInIcon color="primary" />
+          //     </IconButton>
+          //   )
+          // }
           title={
             loading ? (
               <Skeleton
@@ -99,13 +99,13 @@ const SingleReview = ({ loading, data }) => {
               data.reviewerName
             )
           }
-          subheader={
-            loading ? (
-              <Skeleton animation="wave" height={14} width="40%" />
-            ) : (
-              data.reviewerDesignation
-            )
-          }
+          // subheader={
+          //   loading ? (
+          //     <Skeleton animation="wave" height={14} width="40%" />
+          //   ) : (
+          //     data.reviewerDesignation
+          //   )
+          // }
         />
 
         <CardContent>

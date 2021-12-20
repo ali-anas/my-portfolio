@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 import AuthButtonComponent from "../auth/AuthButtonComponent";
 
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,14 +53,20 @@ const AllReviews = () => {
   const handleLogin = (response) => {
     // handle click on login button
     console.log(response);
+
     setIsLoggedIn(true);
-    console.log("in handle log in: ", isLoggedIn);
+    const userToken = response.tokenObj.id_token;
+    post("/auth/login", { token: userToken }).then((user) => {
+      // the server knows we're logged in now
+      console.log(user);
+    });
   };
 
   const handleLogout = () => {
     // handle click on logout button
     setIsLoggedIn(false);
     console.log("logged out...");
+    post("/auth/logout");
   };
 
   useEffect(() => {

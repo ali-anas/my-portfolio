@@ -2,19 +2,19 @@
 //   reviews: [],
 // };
 
+const { UserRefreshClient } = require("google-auth-library");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const revieweSchema = new Schema({
+  reviewerDesignation: String,
+  linkedinUrl: String,
+  reviewerCurrentOrg: String,
+  reviewerId: {
+    type: String,
+    required: true,
+  },
   reviewerName: {
-    type: String,
-    required: true,
-  },
-  reviewerDesignation: {
-    type: String,
-    required: true,
-  },
-  linkedinUrl: {
     type: String,
     required: true,
   },

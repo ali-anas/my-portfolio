@@ -4,13 +4,16 @@ const http = require("http");
 const mongoose = require("mongoose");
 const session = require("express-session");
 
+const authController = require("./controllers/authController");
+
 // Load config
-require('dotenv').config();
+require("dotenv").config();
 
 // import routers
 const projectsRouter = require("./routers/projectsRouter");
 const skillsRouter = require("./routers/skillsRouter");
 const reviewsRouter = require("./routers/reviewsRouter");
+const authRouter = require("./routers/authRouter");
 
 // pre-requisite to connect to mongodb
 const mongoConnectionURL = process.env.MONGO_SRV;
@@ -35,18 +38,26 @@ const app = express();
 // allows us to make post requests
 app.use(express.json());
 
+// set up a session, which will persist login data across requests
+app.use(
+  session({
+    secret: "session-secret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+// this checks if the user is logged in, and populates "req.user"
+app.use(authController.populateCurrentUser);
+
 const reactPath = path.resolve(__dirname, "..", "public");
 app.use(express.static(reactPath));
-
-// Sessions
-app.use(
-  session({ secret: "my secret", resave: false, saveUninitialized: false })
-);
 
 // use the routers
 app.use("/projects", projectsRouter);
 app.use("/skills/", skillsRouter);
 app.use("/reviews", reviewsRouter);
+app.use("/auth", authRouter);
 
 // for all other routes, render index.html and let the
 // react router handle it
